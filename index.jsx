@@ -48,7 +48,7 @@ const App = (props) => {
   }, [flashMatrix])
 
   const onAdvance = () => {
-    if (appState == 2 || appState == 6 || appState == 7 || appState == 8) {
+    if (appState == 3 || appState == 6 || appState == 7 || appState == 8) {
       setFlashMatrix(true)
     }
     setAppState(appState + 1)
@@ -362,7 +362,7 @@ const GenderCalculation = ({onAdvance, showMatrix, hideMatrix}) => {
     else {
       setComplete(true)
     }
-  }, 100);
+  }, 200);
 
   useInterval(() => {
     if (overallProgress > 75 && overallProgress < 90) {
@@ -439,14 +439,13 @@ const Reveal = () => {
       }
 
       {reveal3 &&
-        <h1 className={"text-3xl pb-8"}>
+        <h1 className={"text-3xl pb-8 animate-ping"}>
           GONGRATS!
         </h1>
       }
     </div>
   );
 }
-
 
 const ProgressBar = (props) => {
   const { bgcolor, progress, units, extraClass } = props;
