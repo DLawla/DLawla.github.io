@@ -22,7 +22,7 @@ const inputStyle = "w-100 my-8 bg-gray-50 border border-green-300 text-green-900
 const App = (props) => {
   const [showMatrix, setShowMatrix] = React.useState(false);
   const [flashMatrix, setFlashMatrix] = React.useState(false);
-  const [appState, setAppState] = React.useState(0);
+  const [appState, setAppState] = React.useState(11);
 
   React.useEffect(() => {
     const matrixMask = document.getElementById("mask");
@@ -396,12 +396,11 @@ const GenderCalculation = ({onAdvance, showMatrix, hideMatrix}) => {
 
   return (
     <div className="text-center text-green-500">
-      <h1 className={"text-xl pb-2 animate-pulse"}>... calculating ...</h1>
-      <p>{overallProgress}%</p>
+      <h1 className={"text-xl pb-2 animate-pulse"}>... calculating {overallProgress}%</h1>
 
       { data.map((item, idx) => (
-        <div key={idx} className={"my-1"}>
-          <span className={"text-sm"}>{item.title}</span>
+        <div key={idx} className={"my-0 sm:my-3"}>
+          <span className={"text-xs sm:text-xs"}>{item.title}</span>
           <ProgressBar bgcolor={item.bgcolor} progress={item.progress} units={item.units} extraClass={item.extraClass} />
         </div>
       )) }
