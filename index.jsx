@@ -17,7 +17,7 @@ const stateNames =
 
 const gender = 1
 
-const inputStyle = "w-100 my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+const inputStyle = "w-full my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 
 const App = (props) => {
   const [showMatrix, setShowMatrix] = React.useState(false);
@@ -375,22 +375,28 @@ const GenderCalculation = ({onAdvance, showMatrix, hideMatrix}) => {
   // Ending animation
   React.useEffect(() => {
     if (complete) {
-      console.log("complete", gender, data[0].progress)
+      let clonedData = data.map(a => {return {...a}})
+
       if (gender == 0) {
-        let clonedData = data.map(a => {return {...a}})
         clonedData[0].progress = 0.0
-        clonedData[0].extraClass = "animate-ping"
-        console.log(clonedData)
         setData(clonedData)
       } else if (gender == 1) {
-        let clonedData = data.map(a => {return {...a}})
         clonedData[0].progress = 100.0
-        clonedData[0].extraClass = "animate-ping"
-        console.log(clonedData)
         setData(clonedData)
       }
 
-      setTimeout(onAdvance, 4000)
+      clonedData = data.map(a => {return {...a}})
+      setTimeout(() => {
+        if (gender == 0) {
+          clonedData[0].progress = 0.0
+        } else if (gender == 1) {
+          clonedData[0].progress = 100.0
+        }
+        clonedData[0].extraClass = "animate-ping"
+        setData(clonedData)
+      }, 2000)
+
+      setTimeout(onAdvance, 5000)
     }
   }, [complete])
 
