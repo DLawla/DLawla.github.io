@@ -17,7 +17,7 @@ const stateNames =
 
 const gender = 1
 
-const inputStyle = "w-full my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+const inputStyle = "appearance-none w-full my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
 
 const App = (props) => {
   const [showMatrix, setShowMatrix] = React.useState(false);
