@@ -22,7 +22,7 @@ const inputStyle = "w-100 my-8 bg-gray-50 border border-green-300 text-green-900
 const App = (props) => {
   const [showMatrix, setShowMatrix] = React.useState(false);
   const [flashMatrix, setFlashMatrix] = React.useState(false);
-  const [appState, setAppState] = React.useState(11);
+  const [appState, setAppState] = React.useState(0);
 
   React.useEffect(() => {
     const matrixMask = document.getElementById("mask");
