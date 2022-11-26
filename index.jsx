@@ -17,7 +17,7 @@ const stateNames =
 
 const gender = 1
 
-const inputStyle = "my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+const inputStyle = "w-100 my-8 bg-gray-50 border border-green-300 text-green-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-green-700 dark:border-green-600 dark:placeholder-green-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
 
 const App = (props) => {
   const [showMatrix, setShowMatrix] = React.useState(false);
@@ -43,7 +43,7 @@ const App = (props) => {
       setTimeout(() => {
         setShowMatrix(false)
         setFlashMatrix(false)
-      }, 100)
+      }, 200)
     }
   }, [flashMatrix])
 
@@ -396,11 +396,11 @@ const GenderCalculation = ({onAdvance, showMatrix, hideMatrix}) => {
 
   return (
     <div className="text-center text-green-500">
-      <h1 className={"text-xl pb-8 animate-pulse"}>... calculating ...</h1>
+      <h1 className={"text-xl pb-2 animate-pulse"}>... calculating ...</h1>
       <p>{overallProgress}%</p>
 
       { data.map((item, idx) => (
-        <div key={idx} className={"my-2"}>
+        <div key={idx} className={"my-1"}>
           <span className={"text-sm"}>{item.title}</span>
           <ProgressBar bgcolor={item.bgcolor} progress={item.progress} units={item.units} extraClass={item.extraClass} />
         </div>
