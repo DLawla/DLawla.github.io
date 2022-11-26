@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello Baby</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+  <!-- Don't use this in production: -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="text/jsx" src="/index.jsx"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+    body {
+      background: #000;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    canvas {display: block;}
+
+    button {
+      border: 2px solid green !important;
+      background-color: black !important;
+      padding: 10px !important;
+      margin: 10px !important;
+      border-radius: 10px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="relative">
+    <div class="absolute h-screen w-full bg-white transition duration-100" id="mask"></div>
+    <canvas></canvas>
+    <div class="absolute w-1/2 left-1/4 top-[50px]">
+      <div class="">
+        <div class="text-center">
+          <div id="app-id" class=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Initialising the canvas
+    const canvas = document.querySelector('canvas'), ctx = canvas.getContext('2d');
+
+    // Setting the width and height of the canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Setting up the letters
+    var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
+    letters = letters.split('');
+
+    // Setting up the columns
+    var fontSize = 10,
+      columns = canvas.width / fontSize;
+
+    // Setting up the drops
+    var drops = [];
+    for (var i = 0; i < columns; i++) {
+      drops[i] = 1000;
+    }
+
+    // Setting up the draw function
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, .1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      for (var i = 0; i < drops.length; i++) {
+        var text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillStyle = '#0f0';
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        drops[i]++;
+        if (drops[i] * fontSize > canvas.height && Math.random() > .95) {
+          drops[i] = 0;
+        }
+      }
+    }
+    // Loop the animation
+    setInterval(draw, 40);
+  </script>
+</body>
+</html>
