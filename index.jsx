@@ -104,7 +104,7 @@ const App = (props) => {
       <div className="text-center text-green-500">
         <h1 className={"text-xl pb-8"}>Question 11</h1>
         <p className={"mb-4"}>When was the human parents' first date?</p>
-        <input type="date" className={inputStyle}/>
+        <input value="2020-01-10" type="date" className={inputStyle}/>
         <div>
           <button onClick={onAdvance}>Next</button>
         </div>
@@ -118,7 +118,7 @@ const App = (props) => {
         <p className={"mb-4"}>What is the approximate conception date of aforementioned non-gendered fresh human?</p>
         <div className={"pb-8"}>[Tolerance +/- 0.5 earth days]</div>
         <div className={"text-xs"}>Leave blank if same as first date</div>
-        <input type="date" className={inputStyle}/>
+        <input type="date" value="2020-01-10" className={inputStyle}/>
         <div>
           <button onClick={onAdvance}>Next</button>
         </div>
