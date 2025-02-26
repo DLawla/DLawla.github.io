@@ -197,7 +197,7 @@ const App = (props) => {
     );
   }
   else if (stateNames[appState] === "question800") {
-    const names = ["CAD skills", "ROI", "New tax dependent", "Excuse to leave social engagement early"]
+    const names = ["ROI", "New tax dependent", "Excuse to leave social engagements early"]
 
     return (
       <div className="text-center text-green-500">
