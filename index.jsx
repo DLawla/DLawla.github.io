@@ -140,7 +140,7 @@ const App = (props) => {
       </div>
     );
   } else if (stateNames[appState] === "question600") {
-    const names = ["Sebastian", "Carol", "Chad"]
+    const names = ["Sebastian", "Carol", "Chad", "01100010 01101001 01101100 01101100 00001010"]
 
     return (
       <div className="text-center text-green-500">
