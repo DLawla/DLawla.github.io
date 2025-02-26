@@ -71,7 +71,7 @@ const App = (props) => {
           <button onClick={onAdvance}>Get started</button>
         </div>
 
-        <p className={"text-xs text-gray-500"}>V2.04, powered by the latest human mass surveillance efforts and Reddit posts.</p>
+        <p className={"text-xs text-gray-500"}>V2.05, powered by the latest human mass surveillance efforts and Reddit posts.</p>
       </div>
     );
   }
